@@ -53,7 +53,7 @@ Zotero.Z2CSL = {
 				fieldMap = {
 										name:'field',
 										attributes:{
-												label:Zotero.ItemFields.getLocalizedString(this.zoteroTypes[i].id,fields[j]),
+												label:Zotero.ItemFields.getLocalizedString(fields[j]),
 												value:Zotero.ItemFields.getName(fields[j])
 										}
 								};
@@ -80,7 +80,7 @@ Zotero.Z2CSL = {
 					creator = {
 												name:'creatorType',
 												attributes:{
-														label:Zotero.getString('creatorTypes.' + creators[j].name),
+														label:Zotero.CreatorTypes.getLocalizedString(creators[j].name),
 														value:creators[j].name
 												}
 										};
@@ -148,7 +148,7 @@ Zotero.Z2CSL = {
 		//output XML data
 		this.debug("Opening File Picker...");
 		
-		const FilePicker = require('zotero/filePicker').default;
+		var { FilePicker } = ChromeUtils.importESModule('chrome://zotero/content/modules/filePicker.mjs');
 		let fp = new FilePicker();
 	  fp.init(window, "Select a file to save to", fp.modeSave);
 		fp.appendFilters(fp.filterAll);
