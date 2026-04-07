@@ -324,4 +324,7 @@ Zotero.Z2CSL = {
 };
 
 // Initialize the utility
-window.addEventListener('load', function(e) { Zotero.Z2CSL.init(); }, false);
+Zotero.Z2CSL.init();
+
+// Run the export
+Zotero.Z2CSL.exportMappings();
